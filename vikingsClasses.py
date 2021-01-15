@@ -1,13 +1,17 @@
 
 # Soldier
-a = 2
-b = 3
-a + b
 
 class Soldier:
-    def_init_(self, health, strength):
-    self.health = health
-    self strenghe
+    def _init_(self, health, strength):
+        self.health = health
+        self.strength = strength
+    
+    def attack(self):
+        return self.strength
+
+    def receiveDamage(self,damage):
+        self.health -= damage
+
 # Viking
 
 
