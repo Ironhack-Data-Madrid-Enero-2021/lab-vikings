@@ -47,7 +47,8 @@ class War:
         self.vikingArmy.append(viking)
     def addSaxon(self, saxon):
         self.saxonArmy.append(saxon)
-
+    def vikingAttack(self):
+        
 
 
     
