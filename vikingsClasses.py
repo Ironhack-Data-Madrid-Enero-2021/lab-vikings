@@ -1,6 +1,7 @@
 
 # Soldier
 
+ksfnpj 
 
 class Soldier:
     pass
