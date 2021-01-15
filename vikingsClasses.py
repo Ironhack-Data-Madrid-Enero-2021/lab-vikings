@@ -36,9 +36,18 @@ class Saxon (Soldier):
             return f"A Saxon has received {damage} points of damage"
         else:
             return "A Saxon has died in combat"
-
     
 # War
 
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy=[]
+        self.saxonArmy=[]
+    def addViking(self, viking):
+        self.vikingArmy.append(viking)
+    def addSaxon(self, saxon):
+        self.saxonArmy.append(saxon)
+
+
+
+    
