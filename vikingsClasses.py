@@ -12,7 +12,7 @@ class Soldier:
     def receiveDamage(self, damage):
         self.damage = damage
         self.health = self.health - damage
-        
+        return
         
         
 
@@ -46,11 +46,41 @@ class Viking(Soldier):
 # Saxon
 
 
-class Saxon:
-    pass
+class Saxon(Soldier):
+    def __init__(self, health, strength):
+        super().__init__(health, strength)
 
+    def attack(self):
+        self.strength
+        return self.strength
+
+    def receiveDamage(self, damage):
+        self.damage = damage
+        self.health = self.health - damage
+
+        if self.health > 0:
+            return f"A Saxon has received {damage} points of damage"
+
+        else:
+            return f"A Saxon has died in combat"
+    
 # War
 
 
 class War:
-    pass
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+
+        #aqui creo que deberia ir algo
+    
+    def addViking(self, Viking):
+
+        self.vikingArmy.append(Viking)
+
+    
+    def addSaxon(self, Saxon):
+        
+        self.vikingArmy.append(Viking)
+
+        pass
