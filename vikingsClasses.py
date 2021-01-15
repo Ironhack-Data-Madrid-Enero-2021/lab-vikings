@@ -2,7 +2,7 @@
 # Soldier
 
 class Soldier:
-    def _init_(self, health, strength):
+    def __init__(self, health, strength):
         self.health = health
         self.strength = strength
     
