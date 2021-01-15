@@ -1,10 +1,13 @@
 
 # Soldier
-
+a = 2
+b = 3
+a + b
 
 class Soldier:
-    pass
-
+    def_init_(self, health, strength):
+    self.health = health
+    self strenghe
 # Viking
 
 
