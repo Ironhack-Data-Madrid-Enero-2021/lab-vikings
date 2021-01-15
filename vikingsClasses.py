@@ -53,7 +53,7 @@ class War:
         viking_fighter=self.vikingArmy[0]
         saxon_fighter=self.saxonArmy[0]
         attack=viking_fighter.attack()
-        if saxon_fighter.health < attack:
+        if saxon_fighter.health <= attack:
             self.saxonArmy.pop(0)
         return saxon_fighter.receiveDamage(attack)
     def saxonAttack(self):
@@ -62,7 +62,7 @@ class War:
         viking_fighter=self.vikingArmy[0]
         saxon_fighter=self.saxonArmy[0]
         attack=saxon_fighter.attack()
-        if viking_fighter.health < attack:
+        if viking_fighter.health <= attack:
             self.vikingArmy.pop(0)
         return viking_fighter.receiveDamage(attack)
     def showStatus(self):
