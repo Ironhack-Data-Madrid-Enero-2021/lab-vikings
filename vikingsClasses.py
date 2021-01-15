@@ -11,7 +11,7 @@ class Soldier:
         return self.strength
 
     def receiveDamage(self,damage):
-        self.health = self.health - self.strength
+        self.health = self.health - damage
     
     pass
 
@@ -21,7 +21,10 @@ class Soldier:
 # Viking
 
 
-class Viking:
+class Viking (Soldier):
+    def __init__(self, name, health, strength):
+        super().__init__(self, health, strength)
+    
     pass
 
 # Saxon
