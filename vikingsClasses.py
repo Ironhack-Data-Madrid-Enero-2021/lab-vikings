@@ -1,3 +1,4 @@
+import random
 
 # Soldier
 
@@ -25,12 +26,11 @@ class Viking(Soldier):
         self.name = name
 
     def attack(self):
-        self.strength
         return self.strength
 
     def receiveDamage(self, damage): # estos métodos tienen que ser reimplentados ==> esto, si no he entenido mal se hace sobreeribiendo la variable como se hace a continuación
         #Basicamente, estoy llamando a la clase constructora para definir todos los valores, pero luego anulo el valor (health y damage) de esta clase
-        self.damage = damage
+        self.damage = damage 
         self.health = self.health - damage
 
 
@@ -51,7 +51,6 @@ class Saxon(Soldier):
         super().__init__(health, strength)
 
     def attack(self):
-        self.strength
         return self.strength
 
     def receiveDamage(self, damage):
@@ -66,21 +65,46 @@ class Saxon(Soldier):
     
 # War
 
-
 class War:
     def __init__(self):
-        self.vikingArmy = []
+        self.vikingArmy = []        
         self.saxonArmy = []
-
-        #aqui creo que deberia ir algo
     
-    def addViking(self, Viking):
+    def addViking(self, viking):
+        self.vikingArmy.append(viking)        
 
-        self.vikingArmy.append(Viking)
-
+    def addSaxon(self, saxon):
+        self.saxonArmy.append(saxon)        
     
-    def addSaxon(self, Saxon):
+    def vikingAttack(self):
+        v = random.choice(self.vikingArmy)  #con esto genero un vikingo al azar 
+        s = random.choice(self.saxonArmy)
+    
+        # v.attack() => con esto lo que hago es generar un ataque del vikingo que he creado anteriormente
+        # s.receiveDamage () => el daño que recibe un sajón
         
-        self.vikingArmy.append(Viking)
+        attack_v = s.receiveDamage(v.attack()) #el daño que recibe Saxon es igual a v.attack()
 
-        pass
+        if s.health <= 0:
+            self.saxonArmy.remove(s)
+        return attack_v
+   
+    def saxonAttack(self):
+        v = random.choice(self.vikingArmy)
+        s = random.choice(self.saxonArmy)
+
+        attack_s = v.receiveDamage(s.attack())
+
+        if v.health <= 0:
+            self.vikingArmy.remove(v)
+        return attack_s
+    
+    def showStatus(self):
+        if len(self.saxonArmy) == 0 and len(self.vikingArmy) > 0:
+            return "Vikings have won the war of the century!"
+        elif len(self.vikingArmy) == 0 and len(self.saxonArmy) > 0:
+            return "Saxons have fought for their lives and survive another day..."
+        else:
+            return "Vikings and Saxons are still in the thick of battle." 
+
+    
