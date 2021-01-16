@@ -64,48 +64,48 @@ class Saxon(Soldier):
 
 class War:
     
-    VikingArmy = []
-    SaxonArmy = []
+    vikingArmy = []
+    saxonArmy = []
 
 
     def __init__(self):
-        self.VikingArmy = []
-        self.SaxonArmy = []
+        self.vikingArmy = []
+        self.saxonArmy = []
     
     
     def addViking(self, viking):
         self.vikingArmy.append(viking)
 
     def addSaxon(self, saxon):
-        self.SaxonArmy.append(saxon)
+        self.saxonArmy.append(saxon)
 
     def vikingAttack(self):
-        Vik = random.choice(self.VikingArmy)
-        Sax = random.choice(self.SaxonArmy)
-        attackviking = vik.strength
+        Vik = random.choice(self.vikingArmy)
+        Sax = random.choice(self.saxonArmy)
+        
+        theWar = Sax.receiveDamage(Vik.strength)
 
-        if sax.health <= 0:
-            self.SaxonArmy.remove(sax)
+        if Sax.health <= 0:
+            self.saxonArmy.remove(Sax)
         else:
-            return sax.receiveDamage(attackviking)
-
-
-
-        if saxon.health <= 0:
-            self.SaxonArmy.remove(s)
+            return theWar
     
     def saxonAttack(self):
-        Vik = random.choice(self.VikingArmy)
-        Sax = random.choice(self.SaxonArmy)
+        Vik = random.choice(self.vikingArmy)
+        Sax = random.choice(self.saxonArmy)
 
-        if viking.health <= 0:
-            self.vikingArmy.remove(v)
+        thewar2 = Vik.receiveDamage(Sax.strength)
+        
+        if Vik.health <= 0:
+            self.vikingArmy.remove(Vik)
+        else:
+            return thewar2
 
     def showStatus(self):
-        if len(self.SaxonArmy) == 0:
+        if not self.saxonArmy:
             return f"Vikings have won the war of the century!"
 
-        if len(self.vikingArmy) == 0:
+        if not self.vikingsArmy:
             return f"Saxons have fought for their lives and survive another day..."
         
         else:
