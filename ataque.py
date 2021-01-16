@@ -7,12 +7,12 @@ import random
 
 names_list=['Olaf', 'Vicky', 'Ragnar', 'Harald', 'Sigurd']
 vikingraid=War()
-print('Viking forces (S, H): ')
+print('Viking forces (H, S): ')
 for n in names_list:
     vikingraid.addViking(Viking(n, random.randint(1,10), random.randint(1,10)))
     print(vikingraid.vikingArmy[-1].name, vikingraid.vikingArmy[-1].health, vikingraid.vikingArmy[-1].strength)
 saxon_army_size=int(input('How many saxons are defending the castle? '))
-print('Saxon forces (S, H): ')
+print('Saxon forces (H, S): ')
 for i in range(saxon_army_size):
     vikingraid.addSaxon(Saxon(random.randint(1,5), random.randint(1,5)))
     print(f"Saxon{i+1} ", vikingraid.saxonArmy[-1].health, vikingraid.saxonArmy[-1].strength)
