@@ -83,6 +83,7 @@ class War:
         
         return attackv
     
+    
     def saxonAttack(self):
         choiceSaxon = random.choice(self.saxonArmy)
         choiceViking = random.choice(self.vikingArmy)
