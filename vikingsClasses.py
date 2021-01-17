@@ -61,29 +61,33 @@ class War:
     def addViking(self,viki):
         if isinstance(viki,Viking):
             self.vikingArmy.append(viki)
-
-    def addSaxon(self,saxo):
-        if isinstance(saxo,Saxon):
+            
+    def addSaxon(self, saxo):
+        if isinstance(saxo, Saxon):
             self.saxonArmy.append(saxo)
-   
+       
     def vikingAttack(self):
         v1 = random.choice(self.vikingArmy)
         s1 = random.choice(self.saxonArmy)
        
-        s1.receiveDamage = v1.strength
+        damage_sax = s1.receiveDamage(v1.attack()) 
+
         if s1.health <= 0:
             self.saxonArmy.remove(s1)
-            return "result of calling " + str(s1.receiveDamage) + " of a Saxon with the strength of a Viking"
+
+        return "result of calling " + (damage_sax) + " of a Saxon with the strength of a Viking"
       
 
     def saxonAttack(self):
         v2 = random.choice(self.vikingArmy)
         s2 = random.choice(self.saxonArmy)
 
-        v2.receiveDamage = s2.strength
+        damage_vik = v2.receiveDamage(s2.attack())  
+
         if v2.health <= 0:
             self.vikingArmy.remove(v2)
-            return "result of calling " + str(v2.receiveDamage) + " of a Viking with the strength of a Saxon"
+
+        return "result of calling " + (damage_vik) + " of a Viking with the strength of a Saxon"
         
 
     def showStatus(self):
