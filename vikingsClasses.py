@@ -30,7 +30,7 @@ class Viking:
 
     def receiveDamage(self,damage):
         self.health = self.health - damage
-        if self.health >= 0:
+        if self.health > 0:
             return str(self.name) + " has received " + str(damage) + " points of damage"
         else:
             return str(self.name) + " has died in act of combat"
@@ -48,7 +48,7 @@ class Saxon:
     
     def receiveDamage(self,damage):
         self.health = self.health - damage
-        if self.health >= 0:
+        if self.health > 0:
             return "A Saxon has received " + str(damage) + " points of damage"
         else:
             return "A Saxon has died in combat"
@@ -69,10 +69,9 @@ class War:
     def vikingAttack(self):
         v1 = random.choice(self.vikingArmy)
         s1 = random.choice(self.saxonArmy)
-
-        damage_saxon = s1.receiveDamage(v1.attack())
-
-        if s1.health > 0:
+       
+        s1.receiveDamage = v1.strength
+        if s1.health <= 0:
             self.saxonArmy.remove(s1)
             return "result of calling " + str(s1.receiveDamage) + " of a Saxon with the strength of a Viking"
       
@@ -81,10 +80,8 @@ class War:
         v2 = random.choice(self.vikingArmy)
         s2 = random.choice(self.saxonArmy)
 
-        damame_viking = v2.receiveDamage(s2.attack()) 
-
-    
-        if v2.health > 0:
+        v2.receiveDamage = s2.strength
+        if v2.health <= 0:
             self.vikingArmy.remove(v2)
             return "result of calling " + str(v2.receiveDamage) + " of a Viking with the strength of a Saxon"
         
