@@ -75,8 +75,8 @@ class War:
         choiceSaxon = random.choice(self.saxonArmy)
         choiceViking = random.choice(self.vikingArmy)
         
-        attackv = choiceSaxon.receiveDamage(choiceViking.attack())
-        healthViking = choiceViking.attack() 
+        healthViking = choiceViking.attack()
+        attackv = choiceSaxon.receiveDamage(healthViking)
         
         if healthViking >= 0:
             self.saxonArmy.remove(choiceSaxon)
@@ -87,8 +87,8 @@ class War:
         choiceSaxon = random.choice(self.saxonArmy)
         choiceViking = random.choice(self.vikingArmy)
         
-        attacks = choiceViking.receiveDamage(choiceSaxon.attack())
         healthSaxon = choiceSaxon.attack()
+        attacks = choiceViking.receiveDamage(healthSaxon)
         
         if healthSaxon >= 0:
             self.vikingArmy.remove(choiceViking)     
