@@ -63,31 +63,43 @@ class War:
     def vikingAttack(self):
         choiceSaxon = random.choice(self.saxonArmy)
         choiceViking = random.choice(self.vikingArmy)
+        
         attackv = choiceSaxon.receiveDamage(choiceViking.attack())
         healthViking = choiceViking.attack() 
+        
         if healthViking >= 0:
             self.saxonArmy.remove(choiceSaxon)
+        
         return attackv
     
+
     def saxonAttack(self):
         choiceSaxon = random.choice(self.saxonArmy)
         choiceViking = random.choice(self.vikingArmy)
+        
         attacks = choiceViking.receiveDamage(choiceSaxon.attack())
         healthSaxon = choiceSaxon.attack()
+        
         if healthSaxon >= 0:
             self.vikingArmy.remove(choiceViking)     
+        
         return attacks
     
+
     def showStatus(self):
         if len(self.saxonArmy) == 0:
             return "Vikings have won the war of the century!"
+        
         elif len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."
+        
         elif len(self.saxonArmy) > 0 and len(self.vikingArmy) > 0:
             return "Vikings and Saxons are still in the thick of battle."
 
 
 
+# No entiendo bien cual es el fallo, me dice que es ----list index out of range--- 
+# y las unicas listas que creé están vacias.
         
         
 
