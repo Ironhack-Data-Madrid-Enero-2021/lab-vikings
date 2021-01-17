@@ -60,7 +60,8 @@ class Saxon(Soldier):
     
 
 # War
-
+# me salen todos los test menos dos... me he quedado bloaqueado, nose en qué... "frustrated"
+#help me please
 
 class War:
     
