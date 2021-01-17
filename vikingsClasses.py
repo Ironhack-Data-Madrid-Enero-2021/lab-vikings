@@ -1,4 +1,4 @@
-
+from random import choice
 # Soldier
 
 
@@ -62,5 +62,50 @@ class Saxon(Soldier):
 # War
 
 
+
 class War:
-    pass
+
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
+
+    def addViking(self, viking):
+        self.vikingArmy.append(viking)
+
+    
+    def addSaxon(self, saxon):
+        self.saxonArmy.append(saxon)
+
+    def vikingAttack(self):
+        viking_index = choice(range(len(self.vikingArmy)))
+        saxon_index = choice(range(len(self.saxonArmy)))
+        viking_attack = self.vikingArmy[viking_index].attack()
+        receive_damage_result = self.saxonArmy[saxon_index].receiveDamage(viking_attack)
+        ##                      Give me the saxon of the given index; .apply to him the receiveDamage method, where the damage is = to the attack of given viking 
+
+        if self.saxonArmy[saxon_index].health <= 0:
+            self.saxonArmy.pop(saxon_index)
+        
+        return receive_damage_result
+
+    def saxonAttack(self):
+        saxon_index = choice(range(len(self.saxonArmy)))
+        viking_index  = choice(range(len(self.vikingArmy)))
+        saxon_attack = self.saxonArmy[saxon_index].attack()
+        
+        receive_damage_result = self.vikingArmy[viking_index].receiveDamage(saxon_attack)
+
+        if self.vikingArmy[viking_index].health <= 0:
+            self.vikingArmy.pop(viking_index)
+        return receive_damage_result
+
+
+
+    def showStatus(self):
+        if len(self.saxonArmy) == 0:
+            return "Vikings have won the war of the century!"
+        elif len(self.vikingArmy) == 0:
+            return "Saxons have fought for their lives and survive another day..."
+        
+        return "Vikings and Saxons are still in the thick of battle."
+
