@@ -1,4 +1,4 @@
-
+import random
 # Soldier
 
 class Soldier:
@@ -51,15 +51,46 @@ class Saxon(Soldier):
         else:
             return f"A Saxon has died in combat"     
     
-    pass
-
-# War
-
+ 
 class War:
-    def __init__(self)
-    viking_army = " "
-    saxon_army = " "
-
-    def addViking()
-
+    def __init__(self):
+        self.vikingArmy = []
+        self.saxonArmy = []
     
+    def addViking(self,Viking):
+        self.vikingArmy.append(Viking)
+
+    def addSaxon(self,Saxon):
+        self.saxonArmy.append(Saxon)
+
+    def vikingAttack(self):
+        if self.vikingArmy and self.saxonArmy:
+            escoge_v = random.choice(self.vikingArmy)
+            escoge_s = random.choice(self.saxonArmy)
+            
+            ataque_v = escoge_v.strength
+            lucha = escoge_s.receiveDamage(ataque_v)
+            if escoge_s.health <= 0:
+                self.saxonArmy.remove(escoge_s)
+            return lucha
+ 
+    def saxonAttack(self):
+        if self.vikingArmy and self.saxonArmy:
+            escoge_s = random.choice(self.saxonArmy)
+            escoge_v = random.choice(self.vikingArmy)
+
+            ataque_s = escoge_s.strength
+            batalla = escoge_v.receiveDamage(ataque_s)
+            if escoge_v.health <= 0:
+                self.vikingArmy.remove(escoge_v)
+            return batalla
+   
+   
+    def showStatus(self):
+        if len(self.saxonArmy) == 0 and len(self.vikingArmy) > 0:
+            return "Vikings have won the war of the century!"
+        elif len(self.vikingArmy) == 0 and len(self.saxonArmy) > 0:
+            return "Saxons have fought for their lives and survive another day..."
+        else:
+            return "Vikings and Saxons are still in the thick of battle."
+
