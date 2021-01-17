@@ -75,7 +75,7 @@ class War:
         if s1.health <= 0:
             self.saxonArmy.remove(s1)
 
-        return "result of calling " + (damage_sax) + " of a Saxon with the strength of a Viking"
+        return damage_sax
       
 
     def saxonAttack(self):
@@ -87,7 +87,7 @@ class War:
         if v2.health <= 0:
             self.vikingArmy.remove(v2)
 
-        return "result of calling " + (damage_vik) + " of a Viking with the strength of a Saxon"
+        return damage_vik
         
 
     def showStatus(self):
