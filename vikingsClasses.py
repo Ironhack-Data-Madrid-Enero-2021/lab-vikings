@@ -83,29 +83,29 @@ class War:
         Vik = random.choice(self.vikingArmy)
         Sax = random.choice(self.saxonArmy)
         
-        theWar = Sax.receiveDamage(Vik.strength)
+        theWar = Sax.receiveDamage(vik.strength)
 
         if Sax.health <= 0:
-            self.saxonArmy.remove(Sax)
+            self.saxonArmy.remove(saxonArmy)
         else:
             return theWar
     
     def saxonAttack(self):
         Vik = random.choice(self.vikingArmy)
         Sax = random.choice(self.saxonArmy)
-
+    
         thewar2 = Vik.receiveDamage(Sax.strength)
         
         if Vik.health <= 0:
-            self.vikingArmy.remove(Vik)
+            self.vikingArmy.remove(vikingArmy)
         else:
             return thewar2
 
     def showStatus(self):
-        if not self.saxonArmy:
+        if  self.saxonArmy == 0:
             return f"Vikings have won the war of the century!"
 
-        if not self.vikingsArmy:
+        if  self.vikingArmy == 0:
             return f"Saxons have fought for their lives and survive another day..."
         
         else:
