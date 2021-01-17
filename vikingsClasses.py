@@ -1,4 +1,11 @@
+
+"""if isinstance() returns:
+- True if the object is an instance or subclass of a class or any element of the tuple
+- False otherwise
+- If classinfo is not a type or tuple of types, a TypeError exception is raised."""
+
 import random
+"""nota uso: random.choice(myList) = elemento aleatorio de una lista"""
 
 # Soldier
 class Soldier:
@@ -23,7 +30,7 @@ class Viking:
 
     def receiveDamage(self,damage):
         self.health = self.health - damage
-        if self.health > 0:
+        if self.health >= 0:
             return str(self.name) + " has received " + str(damage) + " points of damage"
         else:
             return str(self.name) + " has died in act of combat"
@@ -41,7 +48,7 @@ class Saxon:
     
     def receiveDamage(self,damage):
         self.health = self.health - damage
-        if self.health > 0:
+        if self.health >= 0:
             return "A Saxon has received " + str(damage) + " points of damage"
         else:
             return "A Saxon has died in combat"
@@ -60,31 +67,32 @@ class War:
             self.saxonArmy.append(saxo)
    
     def vikingAttack(self):
-        v = random(self.vikingArmy)
-        s = random(self.saxonArmy)
+        v1 = random.choice(self.vikingArmy)
+        s1 = random.choice(self.saxonArmy)
 
-        v.receiveDamage = s.strength
+        damage_saxon = s1.receiveDamage(v1.attack())
 
-        if s.health <= 0:
-            self.saxonArmy.remove(s)
-        
-        return "result of calling " + str(receiveDamage) + "of a Saxon with the strength of a Viking"
+        if s1.health > 0:
+            self.saxonArmy.remove(s1)
+            return "result of calling " + str(s1.receiveDamage) + " of a Saxon with the strength of a Viking"
+      
 
     def saxonAttack(self):
-        v = random(self.vikingArmy)
-        s = random(self.saxonArmy)
+        v2 = random.choice(self.vikingArmy)
+        s2 = random.choice(self.saxonArmy)
 
-        v.receiveDamage = s.strength
+        damame_viking = v2.receiveDamage(s2.attack()) 
 
-        if v.health <= 0:
-            self.vikingArmy.remove(v)
+    
+        if v2.health > 0:
+            self.vikingArmy.remove(v2)
+            return "result of calling " + str(v2.receiveDamage) + " of a Viking with the strength of a Saxon"
         
-        return "result of calling " + str(receiveDamage) + "of a Viking with the strength of a Saxon"
 
     def showStatus(self):
-        if self.saxonArmy == 0:
+        if len(self.saxonArmy) == 0:
             return "Vikings have won the war of the century!"
-        elif self.vikingArmy == 0:
+        elif len(self.vikingArmy) == 0:
             return "Saxons have fought for their lives and survive another day..."
         else:
             return "Vikings and Saxons are still in the thick of battle."
